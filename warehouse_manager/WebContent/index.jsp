@@ -15,6 +15,9 @@
       <li class="nav-item active">
         <a class="nav-link" href="customer/list">Products <span class="sr-only">(current)</span></a>
       </li>
+       <li class="nav-item">
+        <a class="nav-link" href="clients/list">Clients</a>
+      </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Deliveries</a>
       </li>
