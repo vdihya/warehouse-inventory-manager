@@ -4,7 +4,8 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
 </head>
 
-<body>
+<body background="${pageContext.request.contextPath}/resources/images/index.jpg" style='background-size: cover;background-repeat:no-repeat;'>
+   
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="/warehouse_manager">Warehouse manager</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,7 +23,7 @@
         <a class="nav-link" href="#">Deliveries</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Purchases</a>
+        <a class="nav-link" href="purchases/list">Purchases</a>
       </li>
     </ul>
     <span class="navbar-text">
@@ -30,6 +31,7 @@
     </span>
   </div>
 </nav>
+
 </body>
 
 </html>

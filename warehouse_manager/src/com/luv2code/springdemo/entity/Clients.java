@@ -1,5 +1,6 @@
 package com.luv2code.springdemo.entity;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -27,13 +28,16 @@ public class Clients {
 	
 	public Clients(){}
 
+
 	public int getClientid() {
 		return clientid;
 	}
 
+
 	public void setClientid(int clientid) {
 		this.clientid = clientid;
 	}
+
 
 	public String getClientname() {
 		return clientname;

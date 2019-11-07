@@ -4,13 +4,13 @@
 
 <head>
 
-<title>Products</title>
+<title>Clients</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
 <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css"/>
 </head>
 
 
-<body background="${pageContext.request.contextPath}/resources/images/products.png" style='background-repeat:repeat;'>
+<body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="/warehouse_manager">Warehouse manager</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,7 +22,7 @@
         <a class="nav-link" href="redirect:/customer/list">Products <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Deliveries</a>
+        <a class="nav-link" href="redirect:/clients/list">Clients</a>
         
       </li>
       <li class="nav-item">
@@ -44,49 +44,46 @@
 </div>
 		<table>
 		<tr>
-			<th> Product Id</th>
-			<th> Product category</th>
-			<th> Product Name </th>
-			<th> Units available</th>
-			<th> Per unit cost</th>
-			<th> Minimum purchasable units</th>
-			<th> Date of stocking</th>
+			<th> Purchase ID</th>
+			<th> Client ID</th>
+			<th> Product ID</th>
+			<th> Total Cost </th>
+			<th> Units Purchased </th>
+			<th> Date of Purchase </th>
 			<th> Action </th>
+			
 			
 		</tr>
 		
-		<c:forEach var ="tempCustomer" items="${customers}">
-		<c:url var ="updateLink" value="/customer/showFormForUpdate">
-		<c:param name="customerId" value ="${tempCustomer.productid}" />
+		<c:forEach var ="tempPurchase" items="${purchases}">
 		
-		</c:url>
-		<c:url var="deleteLink" value="/customer/delete">
-		<c:param name="customerId" value="${tempCustomer.productid}" />
+		<c:forEach var ="tempPurchaseDetails" items="${purchasedetails}">
+		<c:url var="deleteLink" value="/purchases/delete">
+		<c:param name="purchaseid" value="${tempPurchase.purchaseid}" />
 		</c:url>
 		
 		<tr> 
-		
-			<td> ${tempCustomer.productid} </td>
-			<td> ${tempCustomer.productname} </td>
-			<td> ${tempCustomer.productcat} </td>
-			
-			<td> ${tempCustomer.units} </td>
-			<td> ${tempCustomer.puc} </td>
-			<td> ${tempCustomer.min} </td>
-			<td> ${tempCustomer.stockdate} </td>
-			
+			<td> ${tempPurchase.purchaseid} </td>
+			<td> ${tempPurchase.clientid} </td>
+			<td> ${tempPurchase.productid} </td>
+
+			<td> ${tempPurchaseDetails.cost} </td>
+			<td> ${tempPurchaseDetails.units} </td>
+			<td> ${tempPurchaseDetails.date_of_purchase} </td>
 			
 			<td>
 			<a href="${updateLink}">Update</a>
 			|
 			<a href="${deleteLink}" onclick="if (!(confirm('Are you sure you want to delete this?'))) return false">Delete</a>
-		</td>
-			 
+			</td> 
 		</tr>
+		
 		</c:forEach>	
+		
+		</c:forEach>
 		</table>
 		<br>
-		<div class="addbutton"></div><input type="button" value="Add Product" onclick="window.location.href='showFormForAdd'; return false;" class="add-button"/>
+		<div class="addbutton"></div><input type="button" value="Add Client" onclick="window.location.href='showFormForAddingClient'; return false;" class="add-button"/>
 	</div>
 	</div>
 	</div>

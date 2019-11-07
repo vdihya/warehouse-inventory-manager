@@ -1,5 +1,4 @@
 package com.luv2code.springdemo.entity;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,7 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="warehouse")
+@Table(name="products")
 public class Customer 
 {
 	@Id
@@ -40,13 +39,19 @@ public class Customer
 		
 	}
 
+
+
 	public int getProductid() {
 		return productid;
 	}
 
+
+
 	public void setProductid(int productid) {
 		this.productid = productid;
 	}
+
+
 
 	public String getProductcat() {
 		return productcat;
