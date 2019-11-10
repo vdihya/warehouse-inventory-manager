@@ -1,4 +1,4 @@
- <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <!DOCTYPE html>
 <html>
@@ -16,9 +16,7 @@
 		  rel="stylesheet"
 		  href="${pageContext.request.contextPath}/resources/css/add-customer-style.css">
 
-<style>
-	.error {color: red}
-</style>
+	
 </head>
 
 <body>
@@ -49,33 +47,46 @@
     </span>
   </div>
 </nav>
-	
+
 	<div id="wrapper">
 		<div id="header">
-			<h2>Client:</h2>
+			<h2>Warehouse Products:</h2>
 		</div>
 	</div>
 
 	<div id="container">
-		<h3>Save Client</h3>
+		<h3>Save Product</h3>
 	
-		<form:form action="saveClient" modelAttribute="client" method="POST">
-		<form:hidden path="clientid"/> 
+		<form:form action="saveProduct" modelAttribute="product" method="POST">
+		<form:hidden path="productid"/>
+		
 			<table>
 				<tbody>
 					<tr>
-						<td><label> Client's Name</label></td>
-						<td><form:input path="clientname" />
-						<form:errors path="clientname" cssClass="error"/></td>
+						<td><label>Product category:</label></td>
+						<td><form:input path="productcat" /></td>
 					</tr>
 					<tr>
-						<td><label>Client's Address:</label></td>
-						<td><form:input path="address" /></td>
+						<td><label>Product name:</label></td>
+						<td><form:input path="productname" /></td>
 					</tr>
 					
 					<tr>
-						<td><label>Client's Phone Number: </label></td>
-						<td><form:input path="phone" /></td>
+						<td><label>Units available:</label></td>
+						<td><form:input path="units" /></td>
+					</tr>
+					
+					<tr>
+						<td><label>Per unit cost:</label></td>
+						<td><form:input path="puc" /></td>
+					</tr>
+					<tr>
+						<td><label>Minimum units:</label></td>
+						<td><form:input path="min" /></td>
+					</tr>
+					<tr>
+						<td><label>Date of stocking:</label></td>
+						<td><form:input path="stockdate" /></td>
 					</tr>
 					<tr>
 						<td><label></label></td>
@@ -93,7 +104,7 @@
 		<div style="clear; both;"></div>
 		
 		<p>
-			<a href="${pageContext.request.contextPath}/clients/list">Back to Client List</a>
+			<a href="${pageContext.request.contextPath}/products/list">Back to List</a>
 		</p>
 	
 	</div>

@@ -6,7 +6,7 @@
 <head>
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
-	<title>Save Product</title>
+	<title>Log a Purchase</title>
 
 	<link type="text/css"
 		  rel="stylesheet"
@@ -31,7 +31,7 @@
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="redirect:/products/list">Products </a>
+        <a class="nav-link" href="redirect:/customer/list">Products </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="redirect:/clients/list">Clients</a>
@@ -52,48 +52,47 @@
 	
 	<div id="wrapper">
 		<div id="header">
-			<h2>Client:</h2>
+			<h2>Purchase details:</h2>
 		</div>
 	</div>
 
 	<div id="container">
-		<h3>Save Client</h3>
+		<h3>Log Purchase details</h3>
 	
-		<form:form action="saveClient" modelAttribute="client" method="POST">
-		<form:hidden path="clientid"/> 
+		<form:form action="savePurchaseDetails" modelAttribute="purchasedetails" method="GET">
+		<form:hidden path="purchaseid" value="${purchaseid}"/>
 			<table>
 				<tbody>
+					 
 					<tr>
-						<td><label> Client's Name</label></td>
-						<td><form:input path="clientname" />
-						<form:errors path="clientname" cssClass="error"/></td>
+						<td><label> Total Cost: </label></td>
+						<td><form:input path="cost" /></td>
 					</tr>
 					<tr>
-						<td><label>Client's Address:</label></td>
-						<td><form:input path="address" /></td>
+						<td><label>Units purchased: </label></td>
+						<td><form:input path="units" /></td>
 					</tr>
-					
 					<tr>
-						<td><label>Client's Phone Number: </label></td>
-						<td><form:input path="phone" /></td>
+						<td><label>Date of purchase: </label></td>
+						<td><form:input path="date_of_purchase" /></td>
 					</tr>
+			
 					<tr>
 						<td><label></label></td>
 						<td><input type="submit" value="Save" class="save" /></td>
 					</tr>
 
-
+	
 				
 				</tbody>
 			</table>
+			</form:form>
 		
-		
-		</form:form>
 	
 		<div style="clear; both;"></div>
 		
 		<p>
-			<a href="${pageContext.request.contextPath}/clients/list">Back to Client List</a>
+			<a href="${pageContext.request.contextPath}/purchases/list">Back to Client List</a>
 		</p>
 	
 	</div>

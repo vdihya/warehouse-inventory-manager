@@ -4,13 +4,13 @@
 
 <head>
 
-<title>Clients</title>
+<title>Products</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
 <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css"/>
 </head>
 
 
-<body>
+<body background="${pageContext.request.contextPath}/resources/images/products.png" style='background-repeat:repeat;'>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="/warehouse_manager">Warehouse manager</a>
@@ -20,25 +20,21 @@
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="customer/list">Products </a>
+        <a class="nav-link" href="redirect:/products/list">Products <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="clients/list">Clients</a>
+        <a class="nav-link" href="redirect:/clients/list">Clients</a>
         
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="purchases/list">Purchases</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="deliveries/list">Deliveries</a>
+        <a class="nav-link" href="#">Purchases</a>
       </li>
     </ul>
     <span class="navbar-text">
       Pick a table to work on
     </span>
   </div>
-</nav>
-<div class="container-fluid">
+</nav><div class="container-fluid">
 
 
 <div id="wrapper">
@@ -48,39 +44,49 @@
 </div>
 		<table>
 		<tr>
-			<th> Client's Name</th>
-			<th> Client's Address</th>
-			<th> Client's Phone Number</th>
+			<th> Product Id</th>
+			<th> Product category</th>
+			<th> Product Name </th>
+			<th> Units available</th>
+			<th> Per unit cost</th>
+			<th> Minimum purchasable units</th>
+			<th> Date of stocking</th>
 			<th> Action </th>
-			
 			
 		</tr>
 		
-		<c:forEach var ="tempClient" items="${clients}">
-		<c:url var ="updateLink" value="/clients/showFormForUpdatingClient">
-		<c:param name="clientid" value ="${tempClient.clientid}" />
+		<c:forEach var ="tempProduct" items="${products}">
+		<c:url var ="updateLink" value="/products/showFormForUpdatingProduct">
+		<c:param name="productid" value ="${tempProduct.productid}" />
 		
 		</c:url>
-		<c:url var="deleteLink" value="/clients/delete">
-		<c:param name="clientid" value="${tempClient.clientid}" />
+		<c:url var="deleteLink" value="/products/delete">
+		<c:param name="productid" value="${tempProduct.productid}" />
 		</c:url>
 		
 		<tr> 
-			<td> ${tempClient.clientname} </td>
-			<td> ${tempClient.address} </td>
-			<td> ${tempClient.phone} </td>
+		
+			<td> ${tempProduct.productid} </td>
+			<td> ${tempProduct.productname} </td>
+			<td> ${tempProduct.productcat} </td>
+			
+			<td> ${tempProduct.units} </td>
+			<td> ${tempProduct.puc} </td>
+			<td> ${tempProduct.min} </td>
+			<td> ${tempProduct.stockdate} </td>
+			
 			
 			<td>
 			<a href="${updateLink}">Update</a>
 			|
 			<a href="${deleteLink}" onclick="if (!(confirm('Are you sure you want to delete this?'))) return false">Delete</a>
-			</td> 
+		</td>
+			 
 		</tr>
-		
 		</c:forEach>	
 		</table>
 		<br>
-		<div class="addbutton"></div><input type="button" value="Add Client" onclick="window.location.href='showFormForAddingClient'; return false;" class="add-button"/>
+		<div class="addbutton"></div><input type="button" value="Add Product" onclick="window.location.href='showFormForAddingProduct'; return false;" class="add-button"/>
 	</div>
 	</div>
 	</div>

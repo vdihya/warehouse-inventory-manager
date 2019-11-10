@@ -19,14 +19,17 @@
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="redirect:/customer/list">Products <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="customer/list">Products </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="redirect:/clients/list">Clients</a>
+        <a class="nav-link" href="clients/list">Clients</a>
         
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Purchases</a>
+        <a class="nav-link" href="purchases/list">Purchases</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="deliveries/list">Deliveries</a>
       </li>
     </ul>
     <span class="navbar-text">
@@ -44,46 +47,33 @@
 </div>
 		<table>
 		<tr>
-			<th> Purchase ID</th>
-			<th> Client ID</th>
-			<th> Product ID</th>
+			<th> Purchase ID </th>
 			<th> Total Cost </th>
 			<th> Units Purchased </th>
 			<th> Date of Purchase </th>
 			<th> Action </th>
-			
-			
 		</tr>
-		
-		<c:forEach var ="tempPurchase" items="${purchases}">
+			
 		
 		<c:forEach var ="tempPurchaseDetails" items="${purchasedetails}">
-		<c:url var="deleteLink" value="/purchases/delete">
-		<c:param name="purchaseid" value="${tempPurchase.purchaseid}" />
-		</c:url>
 		
-		<tr> 
-			<td> ${tempPurchase.purchaseid} </td>
-			<td> ${tempPurchase.clientid} </td>
-			<td> ${tempPurchase.productid} </td>
-
+		<tr>
+			<td> ${tempPurchaseDetails.purchaseid}</td>
 			<td> ${tempPurchaseDetails.cost} </td>
 			<td> ${tempPurchaseDetails.units} </td>
 			<td> ${tempPurchaseDetails.date_of_purchase} </td>
 			
-			<td>
-			<a href="${updateLink}">Update</a>
-			|
-			<a href="${deleteLink}" onclick="if (!(confirm('Are you sure you want to delete this?'))) return false">Delete</a>
-			</td> 
 		</tr>
-		
-		</c:forEach>	
-		
 		</c:forEach>
+			
+		
+		
+		
 		</table>
+		
 		<br>
-		<div class="addbutton"></div><input type="button" value="Add Client" onclick="window.location.href='showFormForAddingClient'; return false;" class="add-button"/>
+		
+		<div class="addbutton"></div><input type="button" value="Log Purchase" onclick="window.location.href='showFormForAddingPurchase'; return false;" class="add-button"/>
 	</div>
 	</div>
 	</div>

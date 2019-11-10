@@ -14,16 +14,17 @@
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="customer/list">Products <span class="sr-only">(current)</span></a>
-      </li>
-       <li class="nav-item">
-        <a class="nav-link" href="clients/list">Clients</a>
+        <a class="nav-link" href="products/list">Products </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Deliveries</a>
+        <a class="nav-link" href="clients/list">Clients</a>
+        
       </li>
       <li class="nav-item">
         <a class="nav-link" href="purchases/list">Purchases</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="deliveries/list">Deliveries</a>
       </li>
     </ul>
     <span class="navbar-text">
