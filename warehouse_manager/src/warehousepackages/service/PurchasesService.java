@@ -7,7 +7,7 @@ public interface PurchasesService {
 
 	List<Purchases> getPurchases();
 
-	Purchases savePurchase(Purchases purchase);
+	Integer savePurchase(Purchases purchase);
 
 	
 }

@@ -24,12 +24,10 @@ public class PurchasesDAOImpl implements PurchasesDAO {
 	}
 
 	@Override
-	public Purchases savePurchase(Purchases purchase) {
+	public Integer savePurchase(Purchases purchase) {
 
 		Session currentSession = sessionFactory.getCurrentSession();
-		currentSession.saveOrUpdate(purchase);
-		Purchases purchaseid =  (Purchases) currentSession.createQuery("from Purchases ORDER BY purchaseid DESC")
-	            .setMaxResults(1).uniqueResult();
+		Integer purchaseid = (Integer) currentSession.save(purchase);
 		return purchaseid;
 		
 	}

@@ -23,7 +23,7 @@ public class PurchasesServiceImpl implements PurchasesService {
 
 	@Override
 	@Transactional
-	public Purchases savePurchase(Purchases purchase) {
+	public Integer savePurchase(Purchases purchase) {
 		return purchasesdao.savePurchase(purchase);
 		
 	}

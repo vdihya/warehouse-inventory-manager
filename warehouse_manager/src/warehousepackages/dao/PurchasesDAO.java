@@ -7,7 +7,7 @@ public interface PurchasesDAO {
 
 	List<Purchases> getPurchases();
 
-	Purchases savePurchase(Purchases purchase);
+	Integer savePurchase(Purchases purchase);
 
 
 }

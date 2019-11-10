@@ -60,7 +60,7 @@ public class PurchasesController extends PropertyEditorSupport
 	public String savePurchase(@ModelAttribute("purchases") Purchases purchase,Model theModel)
 	{
 		
-		Purchases purchaseid = purchasesservice.savePurchase(purchase);
+		Integer purchaseid = purchasesservice.savePurchase(purchase);
 		PurchaseDetails purchasedetails = new PurchaseDetails();
 		theModel.addAttribute("purchasedetails",purchasedetails);
 		theModel.addAttribute("purchaseid",purchaseid);
