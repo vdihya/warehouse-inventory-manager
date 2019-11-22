@@ -8,6 +8,5 @@ public interface PurchasesService {
 	List<Purchases> getPurchases();
 
 	Integer savePurchase(Purchases purchase);
-
 	
 }

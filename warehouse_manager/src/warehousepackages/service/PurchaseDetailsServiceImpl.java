@@ -21,8 +21,13 @@ public class PurchaseDetailsServiceImpl implements PurchaseDetailsService {
 	}
 	@Override
 	@Transactional
-	public void savePurchaseDetails(PurchaseDetails purchasedetails) {
-		purchasedetailsdao.savePurchaseDetails(purchasedetails);
+	public Integer savePurchaseDetails(PurchaseDetails purchasedetails) {
+		return purchasedetailsdao.savePurchaseDetails(purchasedetails);
+	}
+	@Override
+	@Transactional
+	public int checkPurchase(Integer purchaseid) {
+		return purchasedetailsdao.checkPurchase(purchaseid);
 	}
 
 }

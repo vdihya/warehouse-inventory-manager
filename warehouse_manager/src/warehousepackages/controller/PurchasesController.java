@@ -2,7 +2,6 @@ package warehousepackages.controller;
 
 import java.beans.PropertyEditorSupport;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -71,8 +70,17 @@ public class PurchasesController extends PropertyEditorSupport
 	@GetMapping("/savePurchaseDetails")
 	public String savePurchaseDetails(@ModelAttribute("purchasedetails") PurchaseDetails purchasedetails)
 	{	
-		purchasedetailsservice.savePurchaseDetails(purchasedetails);
-		return "redirect:/purchases/list";
-		
+		Integer purchaseid = purchasedetailsservice.savePurchaseDetails(purchasedetails);
+		int result = (int)purchasedetailsservice.checkPurchase(purchaseid);
+		if(result == 0)
+		{
+			
+			return "purchasedetails-form";
+			
+		}
+		else
+		{
+			return "redirect:/purchases/list";
+		}
 	}
 }

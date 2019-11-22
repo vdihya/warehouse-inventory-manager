@@ -6,12 +6,13 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+
 @Entity
 @Table(name="purchasedetails")
 public class PurchaseDetails {
 
 	@Id
-	private String purchaseid;
+	private int purchaseid;
 	
 	@Column(name="cost")
 	private double cost;
@@ -22,11 +23,11 @@ public class PurchaseDetails {
 	@Column(name="date_of_purchase")
 	private String date_of_purchase;
 
-	public String getPurchaseid() {
+	public int getPurchaseid() {
 		return purchaseid;
 	}
 
-	public void setPurchaseid(String purchaseid) {
+	public void setPurchaseid(int purchaseid) {
 		this.purchaseid = purchaseid;
 	}
 
