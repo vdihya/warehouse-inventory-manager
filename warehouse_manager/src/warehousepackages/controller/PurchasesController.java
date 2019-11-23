@@ -68,13 +68,12 @@ public class PurchasesController extends PropertyEditorSupport
 	}
 	
 	@GetMapping("/savePurchaseDetails")
-	public String savePurchaseDetails(@ModelAttribute("purchasedetails") PurchaseDetails purchasedetails)
+	public String savePurchaseDetails(@ModelAttribute("purchasedetails") PurchaseDetails purchasedetails,Model theModel)
 	{	
 		Integer purchaseid = purchasedetailsservice.savePurchaseDetails(purchasedetails);
 		int result = (int)purchasedetailsservice.checkPurchase(purchaseid);
 		if(result == 0)
 		{
-			
 			return "purchasedetails-form";
 			
 		}

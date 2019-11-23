@@ -5,6 +5,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 
 @Entity
@@ -14,12 +16,15 @@ public class PurchaseDetails {
 	@Id
 	private int purchaseid;
 	
+	
 	@Column(name="cost")
 	private double cost;
 	
+	@NotNull(message="Required field")
 	@Column(name="units")
 	private int units;
-	
+
+	@NotEmpty(message="Required!")
 	@Column(name="date_of_purchase")
 	private String date_of_purchase;
 

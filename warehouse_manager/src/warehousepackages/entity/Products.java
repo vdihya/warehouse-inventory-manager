@@ -6,6 +6,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name="products")
@@ -16,21 +20,37 @@ public class Products
 	@Column(name="productid")
 	private int productid;
 	
+
+	@NotEmpty(message="Required field")
 	@Column(name="productname")
 	private String productname;
 	
+
+	@NotEmpty(message="Required field")
 	@Column(name="productcat")
 	private String productcat;
 
+
+	@NotNull(message="Required field")
 	@Column(name="puc")
 	private float puc;
 
+
+	@NotNull(message="Required!")
+	@Min(value=10,message="must be greater than 10 units")
+	@Max(value=1000,message="greater than warehouse capacity!")
 	@Column(name="min")
 	private int min;
 
+
+	@NotEmpty(message="Required field")
 	@Column(name="stockdate")
 	private String stockdate;
 
+
+	@NotNull(message="Required!")
+	@Min(value=10,message="must be greater than 10 units")
+	@Max(value=1000,message="greater than warehouse capacity!")
 	@Column(name="units")
 	private String units;
 	

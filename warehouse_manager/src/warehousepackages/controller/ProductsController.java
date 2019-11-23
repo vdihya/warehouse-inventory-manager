@@ -2,9 +2,12 @@ package warehousepackages.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,16 +21,13 @@ import warehousepackages.service.ProductsService;
 @RequestMapping("/products")
 public class ProductsController {
 	
-	//inject customer service
 	@Autowired
 	private ProductsService productsservice;
 	
 	@GetMapping("/list")
 	public String listCustomers(Model theModel)
 	{
-		//get customers from the dao
 		List<Products> products = productsservice.getProducts();
-		//add customers to the model
 		theModel.addAttribute("products",products);
 		return "list-products";
 	}
@@ -40,9 +40,17 @@ public class ProductsController {
 		return "product-form";
 	}
 	@PostMapping("/saveProduct")
-	public String saveProduct(@ModelAttribute("product") Products product) {
-		productsservice.saveProduct(product);
-		return "redirect:/products/list";
+	public String saveProduct(@Valid @ModelAttribute("product") Products product, BindingResult theBindingResult) {
+		if(theBindingResult.hasErrors())
+		{
+			return "product-form";
+			
+		}
+		else
+		{
+			productsservice.saveProduct(product);
+			return "redirect:/products/list";
+		}
 	}
 	@GetMapping("/showFormForUpdatingProduct")
 	public String showFormForUpdate(@RequestParam("productid") int theId,Model theModel)

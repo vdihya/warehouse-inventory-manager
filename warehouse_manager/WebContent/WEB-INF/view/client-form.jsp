@@ -17,7 +17,7 @@
 		  href="${pageContext.request.contextPath}/resources/css/add-customer-style.css">
 
 <style>
-	.error {color: red}
+	.error {color: blue}
 </style>
 </head>
 
@@ -64,18 +64,25 @@
 			<table>
 				<tbody>
 					<tr>
-						<td><label> Client's Name</label></td>
+						<td><label> Client's Name: </label></td>
 						<td><form:input path="clientname" />
-						<form:errors path="clientname" cssClass="error"/></td>
+						<form:errors path="clientname" cssClass="error"/>
+						</td>
 					</tr>
 					<tr>
 						<td><label>Client's Address:</label></td>
-						<td><form:input path="address" /></td>
+						<td><form:input path="address" />
+						<form:errors path="address" cssClass="error"/></td>
+					
 					</tr>
 					
 					<tr>
 						<td><label>Client's Phone Number: </label></td>
-						<td><form:input path="phone" /></td>
+						<td>
+						<form:input path="phone" />
+						<form:errors path="phone" cssClass="error"/>
+						</td>
+					
 					</tr>
 					<tr>
 						<td><label></label></td>

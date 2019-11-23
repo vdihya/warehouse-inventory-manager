@@ -16,6 +16,9 @@
 		  rel="stylesheet"
 		  href="${pageContext.request.contextPath}/resources/css/add-customer-style.css">
 
+<style>
+	.error {color: blue}
+</style>
 	
 </head>
 
@@ -64,29 +67,36 @@
 				<tbody>
 					<tr>
 						<td><label>Product category:</label></td>
-						<td><form:input path="productcat" /></td>
+						<td><form:input path="productcat" />
+						<form:errors path="productcat" cssClass="error"/></td>
 					</tr>
 					<tr>
 						<td><label>Product name:</label></td>
-						<td><form:input path="productname" /></td>
+						<td><form:input path="productname" />
+						<form:errors path="productname" cssClass="error"/>
+						</td>
 					</tr>
 					
 					<tr>
 						<td><label>Units available:</label></td>
-						<td><form:input path="units" /></td>
+						<td><form:input path="units" />
+						<form:errors path="units" cssClass="error"/></td>
 					</tr>
 					
 					<tr>
 						<td><label>Per unit cost:</label></td>
-						<td><form:input path="puc" /></td>
+						<td><form:input path="puc" />
+						<form:errors path="puc" cssClass="error"/></td>
 					</tr>
 					<tr>
 						<td><label>Minimum units:</label></td>
-						<td><form:input path="min" /></td>
+						<td><form:input path="min" />
+						<form:errors path="min" cssClass="error"/></td>
 					</tr>
 					<tr>
 						<td><label>Date of stocking:</label></td>
-						<td><form:input path="stockdate" /></td>
+						<td><form:input path="stockdate" />
+						<form:errors path="stockdate" cssClass="error"/></td>
 					</tr>
 					<tr>
 						<td><label></label></td>

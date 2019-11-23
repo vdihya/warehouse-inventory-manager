@@ -47,17 +47,25 @@ create procedure unitlimitcheck(IN pid int, OUT result int)
 begin
 	declare insertedunits int;
     declare minimumunits int;
+    declare unitcost float;
     declare availableunits int;
 	declare valid int default 1;
 	declare invalid int default 0;
+    declare totalcost double default 0;
     set invalid=0;
     set valid=1;
+    select puc into @unitcost from products where productid = (select productid from purchases where purchaseid=pid);
     select units into @insertedunits from purchasedetails where purchaseid=pid;
     select min into @minimumunits from products where productid=(select productid from purchases where purchaseid=pid);
     select units into @availableunits from products where productid=(select productid from purchases where purchaseid=pid);
+    
+    set @totalcost = @unitcost * @insertedunits;
+    
     if (@insertedunits > @minimumunits) then
 		if (@availableunits > @insertedunits) then
 			set result = 1;
+            update purchasedetails set cost = (@totalcost) where purchaseid = pid;
+            update products set units = units - @insertedunits where productid = (select productid from purchases where purchaseid =pid);
         else
 			set result = 0;
 			delete from purchasedetails where purchaseid = pid;

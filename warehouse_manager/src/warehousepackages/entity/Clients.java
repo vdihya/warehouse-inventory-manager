@@ -6,6 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="clients")
@@ -16,14 +18,19 @@ public class Clients {
 	@Column(name="clientid")
 	private int clientid;
 	
+
+	@NotEmpty(message="Required field")
 	@Column(name="clientname")
-	
 	private String clientname;
 	
-	
+
+	@NotEmpty(message="Required field")
 	@Column(name="address")
 	private String address;
 	
+
+	@NotEmpty(message="Required field")
+	@Size(min=10,message="10 digits required")
 	@Column(name="phone")
 	private String phone;
 	

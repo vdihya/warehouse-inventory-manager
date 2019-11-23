@@ -65,10 +65,6 @@
 				<tbody>
 					 
 					<tr>
-						<td><label> Total Cost: </label></td>
-						<td><form:input path="cost" /></td>
-					</tr>
-					<tr>
 						<td><label>Units purchased: </label></td>
 						<td><form:input path="units" /></td>
 					</tr>
@@ -88,7 +84,7 @@
 			</table>
 			</form:form>
 		
-	
+			
 		<div style="clear; both;"></div>
 		
 		<p>
