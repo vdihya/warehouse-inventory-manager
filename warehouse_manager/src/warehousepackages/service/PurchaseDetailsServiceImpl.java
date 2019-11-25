@@ -29,5 +29,10 @@ public class PurchaseDetailsServiceImpl implements PurchaseDetailsService {
 	public int checkPurchase(Integer purchaseid) {
 		return purchasedetailsdao.checkPurchase(purchaseid);
 	}
+	@Override
+	@Transactional
+	public void deletePurchase(int purchaseid) {
+		purchasedetailsdao.deletePurchase(purchaseid);
+	}
 
 }

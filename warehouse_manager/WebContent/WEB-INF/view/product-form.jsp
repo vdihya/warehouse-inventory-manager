@@ -6,7 +6,7 @@
 <head>
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
-	<title>Save Product</title>
+	<title>Add Stock</title>
 
 	<link type="text/css"
 		  rel="stylesheet"
@@ -32,17 +32,16 @@
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="redirect:/products/list">Products </a>
+        <a class="nav-link" href="/warehouse_manager/products/list">Products</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="redirect:/clients/list">Clients</a>
-        
+        <a class="nav-link" href="/warehouse_manager/clients/list">Clients</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="redirect:/purchases/list">Purchases</a>
+        <a class="nav-link" href="/warehouse_manager/purchases/list">Purchases</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="redirect:/deliveries/list">Deliveries</a>
+        <a class="nav-link" href="/warehouse_manager/deliveries/list">Deliveries</a>
       </li>
     </ul>
     <span class="navbar-text">
@@ -58,7 +57,7 @@
 	</div>
 
 	<div id="container">
-		<h3>Save Product</h3>
+		<h3>Stock product</h3>
 	
 		<form:form action="saveProduct" modelAttribute="product" method="POST">
 		<form:hidden path="productid"/>

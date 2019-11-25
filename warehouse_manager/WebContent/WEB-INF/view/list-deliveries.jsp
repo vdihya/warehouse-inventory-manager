@@ -4,13 +4,12 @@
 
 <head>
 
-<title>Products</title>
+<title>Deliveries scheduled</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
 <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css"/>
 </head>
 
 
-<body background="${pageContext.request.contextPath}/resources/images/products.png" style='background-repeat:repeat;'>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="/warehouse_manager">Warehouse manager</a>
@@ -20,21 +19,24 @@
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="redirect:/products/list">Products <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/warehouse_manager/products/list">Products</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="redirect:/clients/list">Clients</a>
-        
+        <a class="nav-link" href="/warehouse_manager/clients/list">Clients</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Purchases</a>
+        <a class="nav-link" href="/warehouse_manager/purchases/list">Purchases</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/warehouse_manager/deliveries/list">Deliveries</a>
       </li>
     </ul>
     <span class="navbar-text">
       Pick a table to work on
     </span>
   </div>
-</nav><div class="container-fluid">
+</nav>
+<div class="container-fluid">
 
 
 <div id="wrapper">

@@ -47,4 +47,18 @@ public class PurchaseDetailsDAOImpl implements PurchaseDetailsDAO {
 		return result;
 	}
 
+	@Override
+	public void deletePurchase(int purchaseid) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		@SuppressWarnings("rawtypes")
+		Query theQuery = 
+		currentSession.createQuery("delete from Purchases where purchaseid=:purchaseid");
+		@SuppressWarnings("rawtypes")
+		Query theQuery2 = currentSession.createQuery("delete from Deliveries where purchaseid=:purchaseid");
+		theQuery.setParameter("purchaseid", purchaseid);
+		theQuery2.setParameter("purchaseid", purchaseid);
+		theQuery.executeUpdate();
+		theQuery2.executeUpdate();
+	}
+
 }

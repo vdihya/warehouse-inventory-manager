@@ -32,17 +32,16 @@
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="redirect:/customer/list">Products </a>
+        <a class="nav-link" href="/warehouse_manager/products/list">Products</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="redirect:/clients/list">Clients</a>
-        
+        <a class="nav-link" href="/warehouse_manager/clients/list">Clients</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="redirect:/purchases/list">Purchases</a>
+        <a class="nav-link" href="/warehouse_manager/purchases/list">Purchases</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="redirect:/deliveries/list">Deliveries</a>
+        <a class="nav-link" href="/warehouse_manager/deliveries/list">Deliveries</a>
       </li>
     </ul>
     <span class="navbar-text">
@@ -104,7 +103,7 @@
 		<div style="clear; both;"></div>
 		
 		<p>
-			<a href="${pageContext.request.contextPath}/purchases/list">Back to Client List</a>
+			<a href="${pageContext.request.contextPath}/purchases/list">Go back to Purchase Log</a>
 		</p>
 	
 	</div>

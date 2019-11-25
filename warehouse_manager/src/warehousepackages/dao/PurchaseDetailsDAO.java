@@ -13,4 +13,6 @@ public interface PurchaseDetailsDAO {
 
 	int checkPurchase(Integer purchaseid);
 
+	void deletePurchase(int purchaseid);
+
 }

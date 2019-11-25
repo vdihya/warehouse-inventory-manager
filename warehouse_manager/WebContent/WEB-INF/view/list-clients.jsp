@@ -7,6 +7,7 @@
 <title>Clients</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
 <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css"/>
+
 </head>
 
 
@@ -20,17 +21,16 @@
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="customer/list">Products </a>
+        <a class="nav-link" href="/warehouse_manager/products/list">Products</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="clients/list">Clients</a>
-        
+        <a class="nav-link" href="/warehouse_manager/clients/list">Clients</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="purchases/list">Purchases</a>
+        <a class="nav-link" href="/warehouse_manager/purchases/list">Purchases</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="deliveries/list">Deliveries</a>
+        <a class="nav-link" href="/warehouse_manager/deliveries/list">Deliveries</a>
       </li>
     </ul>
     <span class="navbar-text">

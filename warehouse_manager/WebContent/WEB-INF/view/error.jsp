@@ -6,7 +6,7 @@
 <head>
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
-	<title>Log Purchase details</title>
+	<title>Error!</title>
 
 	<link type="text/css"
 		  rel="stylesheet"
@@ -15,10 +15,9 @@
 	<link type="text/css"
 		  rel="stylesheet"
 		  href="${pageContext.request.contextPath}/resources/css/add-customer-style.css">
-
-<style>
-	.error {color: red}
-</style>
+<head>
+        <meta http-equiv="refresh" content="2;url=/warehouse_manager/purchases/showFormForAddingPurchase" />
+    </head>
 </head>
 
 <body>
@@ -48,68 +47,13 @@
     </span>
   </div>
 </nav>
-	
-	<div id="wrapper">
-		<div id="header">
-			<h2>Purchase details:</h2>
-		</div>
-	</div>
 
-	<div id="container">
-		<h3>Log Purchase details</h3>
-	
-		<form:form action="savePurchaseDetails" modelAttribute="purchasedetails" method="GET">
-		<form:hidden path="purchaseid" value="${purchaseid}"/>
-			<table>
-				<tbody>
-					 
-					<tr>
-						<td><label>Units purchased: </label></td>
-						<td><form:input path="units" /></td>
-					</tr>
-					<tr>
-						<td><label>Date of purchase: </label></td>
-						<td><form:input path="date_of_purchase" /></td>
-					</tr>
-			
-					<tr>
-						<td><label></label></td>
-						<td><input type="submit" value="Save" class="save" /></td>
-					</tr>
-
-	
-				
-				</tbody>
-			</table>
-			</form:form>
-		
-			
-		<div style="clear; both;"></div>
-		
-		<p>
-			<a href="${pageContext.request.contextPath}/purchases/list">Go Back to Purchase Log</a>
-		</p>
-	
-	</div>
-
+<div>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <p class="lead"> Added units are invalid! Redirecting to purchases log page, try again! </p>
+ </div>
+</div>
+</div>
 </body>
-
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-					
-
-
-
-

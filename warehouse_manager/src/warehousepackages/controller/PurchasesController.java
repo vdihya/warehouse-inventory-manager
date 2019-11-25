@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import warehousepackages.entity.Clients;
 import warehousepackages.entity.Products;
@@ -74,12 +75,18 @@ public class PurchasesController extends PropertyEditorSupport
 		int result = (int)purchasedetailsservice.checkPurchase(purchaseid);
 		if(result == 0)
 		{
-			return "purchasedetails-form";
+			return "error";
 			
 		}
 		else
 		{
 			return "redirect:/purchases/list";
 		}
+	}
+	@GetMapping("/delete")
+	public String deletePurchase(@RequestParam("purchaseid") int purchaseid)
+	{
+		purchasedetailsservice.deletePurchase(purchaseid);
+		return "redirect:/purchases/list";
 	}
 }

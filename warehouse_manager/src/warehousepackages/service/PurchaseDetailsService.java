@@ -13,4 +13,6 @@ public interface PurchaseDetailsService {
 
 	int checkPurchase(Integer purchaseid);
 
+	void deletePurchase(int purchaseid);
+
 }
