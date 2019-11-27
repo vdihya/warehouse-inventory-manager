@@ -6,18 +6,10 @@
 <head>
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
-	<title>Add new Client form</title>
-
-	<link type="text/css"
-		  rel="stylesheet"
-		  href="${pageContext.request.contextPath}/resources/css/style.css">
-
-	<link type="text/css"
-		  rel="stylesheet"
-		  href="${pageContext.request.contextPath}/resources/css/add-customer-style.css">
+	<title>Add a new Client</title>
 
 <style>
-	.error {color: blue}
+	.error {color: grey}
 </style>
 </head>
 
@@ -49,58 +41,40 @@
   </div>
 </nav>
 	
-	<div id="wrapper">
-		<div id="header">
-			<h2>Client details:</h2>
-		</div>
-	</div>
-
-	<div id="container">
-		<h3>Save Client</h3>
-	
+	<div class="jumbotron">
+		<h3>Add a Client</h3>
+	<br>
 		<form:form action="saveClient" modelAttribute="client" method="POST">
 		<form:hidden path="clientid"/> 
-			<table>
-				<tbody>
-					<tr>
-						<td><label>Client's Name</label></td>
-						<td><form:input path="clientname" />
-						<form:errors path="clientname" cssClass="error"/>
-						</td>
-					</tr>
-					<tr>
-						<td><label>Client's Address</label></td>
-						<td><form:input path="address" />
-						<form:errors path="address" cssClass="error"/></td>
-					
-					</tr>
-					
-					<tr>
-						<td><label>Client's Phone Number</label></td>
-						<td>
-						<form:input path="phone" />
-						<form:errors path="phone" cssClass="error"/>
-						</td>
-					
-					</tr>
-					<tr>
-						<td><label></label></td>
-						<td><input type="submit" value="Save" class="save" /></td>
-					</tr>
-
-
-				
-				</tbody>
-			</table>
+			
+			
+			
+			<div class="input-group mb-3">
+  			<div class="input-group-prepend">
+   				 <span class="input-group-text" id="basic-addon1">client's name</span>
+ 		 	</div>
+  				<form:input path="clientname" class="form-control" aria-describedby="basic-addon1"/>
+  				<form:errors path="clientname" cssClass="error"/>
+			</div>
+			<div class="input-group mb-3">
+  			<div class="input-group-prepend">
+   				 <span class="input-group-text" id="basic-addon1">client's address</span>
+ 		 	</div>
+  				<form:input path="address" class="form-control" aria-describedby="basic-addon1"/>
+  				<form:errors path="address" cssClass="error"/>
+			</div>
+			<div class="input-group mb-3">
+  			<div class="input-group-prepend">
+   				 <span class="input-group-text" id="basic-addon1">client's phone number</span>
+ 		 	</div>
+  				<form:input path="phone" class="form-control" aria-describedby="basic-addon1"/>
+  				<form:errors path="phone" cssClass="error"/>
+			</div>
+	<button type="submit" class="btn btn-dark">Submit</button>
+	<a class="btn btn-outline-dark" href="${pageContext.request.contextPath}/clients/list" role="button">Back to stock list</a>
 		
 		
 		</form:form>
-	
-		<div style="clear; both;"></div>
-		
-		<p>
-			<a href="${pageContext.request.contextPath}/clients/list"> Go back to Client List</a>
-		</p>
 	
 	</div>
 

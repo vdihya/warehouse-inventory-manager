@@ -8,21 +8,12 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
 	<title>Add Stock</title>
 
-	<link type="text/css"
-		  rel="stylesheet"
-		  href="${pageContext.request.contextPath}/resources/css/style.css">
-
-	<link type="text/css"
-		  rel="stylesheet"
-		  href="${pageContext.request.contextPath}/resources/css/add-customer-style.css">
-
 <style>
-	.error {color: blue}
+	.error {color: grey}
 </style>
 	
 </head>
 
-<body>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="/warehouse_manager">Warehouse manager</a>
@@ -49,72 +40,60 @@
     </span>
   </div>
 </nav>
-
-	<div id="wrapper">
-		<div id="header">
-			<h2>Warehouse Products:</h2>
-		</div>
-	</div>
-
-	<div id="container">
-		<h3>Stock product</h3>
-	
+	<div class="jumbotron">
+		<h3>Add Stock</h3>
+	<br>
 		<form:form action="saveProduct" modelAttribute="product" method="POST">
 		<form:hidden path="productid"/>
 		
-			<table>
-				<tbody>
-					<tr>
-						<td><label>Product category:</label></td>
-						<td><form:input path="productcat" />
-						<form:errors path="productcat" cssClass="error"/></td>
-					</tr>
-					<tr>
-						<td><label>Product name:</label></td>
-						<td><form:input path="productname" />
-						<form:errors path="productname" cssClass="error"/>
-						</td>
-					</tr>
-					
-					<tr>
-						<td><label>Units available:</label></td>
-						<td><form:input path="units" />
-						<form:errors path="units" cssClass="error"/></td>
-					</tr>
-					
-					<tr>
-						<td><label>Per unit cost:</label></td>
-						<td><form:input path="puc" />
-						<form:errors path="puc" cssClass="error"/></td>
-					</tr>
-					<tr>
-						<td><label>Minimum units:</label></td>
-						<td><form:input path="min" />
-						<form:errors path="min" cssClass="error"/></td>
-					</tr>
-					<tr>
-						<td><label>Date of stocking:</label></td>
-						<td><form:input path="stockdate" />
-						<form:errors path="stockdate" cssClass="error"/></td>
-					</tr>
-					<tr>
-						<td><label></label></td>
-						<td><input type="submit" value="Save" class="save" /></td>
-					</tr>
-
-
-				
-				</tbody>
-			</table>
-		
-		
-		</form:form>
 	
-		<div style="clear; both;"></div>
+		<div class="input-group mb-3">
+  			<div class="input-group-prepend">
+   				 <span class="input-group-text" id="basic-addon1">product category</span>
+ 		 	</div>
+  				<form:input path="productcat" class="form-control" aria-describedby="basic-addon1"/>
+  				<form:errors path="productcat" cssClass="error"/>
+		</div>
+		<div class="input-group mb-3">
+  			<div class="input-group-prepend">
+   				 <span class="input-group-text" id="basic-addon1">product name</span>
+ 		 	</div>
+  				<form:input path="productname" class="form-control" aria-describedby="basic-addon1"/>
+  				<form:errors path="productname" cssClass="error"/>
+		</div>
+		<div class="input-group mb-3">
+  			<div class="input-group-prepend">
+   				 <span class="input-group-text" id="basic-addon1">units available</span>
+ 		 	</div>
+  				<form:input path="units" class="form-control" aria-describedby="basic-addon1"/>
+  				<form:errors path="units" cssClass="error"/>
+  				
+		</div>
+		<div class="input-group mb-3">
+  			<div class="input-group-prepend">
+   				 <span class="input-group-text" id="basic-addon1">per unit cost</span>
+ 		 	</div>
+  				<form:input path="puc" class="form-control" aria-describedby="basic-addon1"/>
+  					<form:errors path="puc" cssClass="error"/>
+  				
+		</div>
+		<div class="input-group mb-3">
+  			<div class="input-group-prepend">
+   				 <span class="input-group-text" id="basic-addon1">minimum units purchasable</span>
+ 		 	</div>
+  				<form:input path="min" class="form-control" aria-describedby="basic-addon1"/>
+  				<form:errors path="min" cssClass="error"/>
+		</div>
+		<div class="input-group mb-3">
+  			<div class="input-group-prepend">
+   				 <span class="input-group-text" id="basic-addon1">date of stocking</span>
+ 		 	</div>
+  				<form:input path="stockdate" class="form-control" aria-describedby="basic-addon1"/>
+		</div>
+	<button type="submit" class="btn btn-dark">Submit</button>
+	<a class="btn btn-outline-dark" href="${pageContext.request.contextPath}/products/list" role="button">Back to stock list</a>
 		
-		<p>
-			<a href="${pageContext.request.contextPath}/products/list">Back to List</a>
-		</p>
+	</form:form>
 	
 	</div>
 

@@ -6,7 +6,6 @@
 
 <title>Logged Purchases</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
-<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css"/>
 </head>
 
 
@@ -44,20 +43,22 @@
 <div id="container">
 	<div id="content">
 </div>
-		<table>
+		<table class="table table-hover">
+		<thead>
 		<tr>
-			<th> Purchase ID </th>
-			<th> Total Cost </th>
-			<th> Units Purchased </th>
-			<th> Date of Purchase </th>
-			<th> Action </th>
+			<th scope="col">Purchase ID </th>
+			<th scope="col">Total Cost </th>
+			<th scope="col">Units Purchased </th>
+			<th scope="col">Date of Purchase </th>
+			<th scope="col">Action </th>
 		</tr>
-			
+		</thead>
 		
 		<c:forEach var ="tempPurchaseDetails" items="${purchasedetails}">
 		<c:url var="deleteLink" value="/purchases/delete">
 		<c:param name="purchaseid" value="${tempPurchaseDetails.purchaseid}" />
 		</c:url>
+		<tbody>
 		<tr>
 			<td> ${tempPurchaseDetails.purchaseid}</td>
 			<td> ${tempPurchaseDetails.cost} </td>
@@ -69,20 +70,14 @@
 			
 		</tr>
 		</c:forEach>
-			
-		
-		
-		
+		</tbody>
 		</table>
-		
 		<br>
-		
-		<div class="addbutton"></div><input type="button" value="Log Purchase" onclick="window.location.href='showFormForAddingPurchase'; return false;" class="add-button"/>
+		<button type="button" class="btn btn-secondary btn-lg btn-block"value="Log Purchase" onclick="window.location.href='showFormForAddingPurchase'; return false;">Log a purchase</button>
+	
 	</div>
 	</div>
 	</div>
 </body>
-
-
 
 </html>

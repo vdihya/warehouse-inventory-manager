@@ -6,10 +6,7 @@
 
 <title>Stock</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
-<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css"/>
 </head>
-
-
 
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -38,25 +35,23 @@
   </div>
 </nav>
 <div class="container-fluid">
-
-
 <div id="wrapper">
-
 <div id="container">
 	<div id="content">
 </div>
-		<table>
+		<table class="table table-hover">
+		<thead>
 		<tr>
-			<th> Product Id</th>
-			<th> Product category</th>
-			<th> Product Name </th>
-			<th> Units available</th>
-			<th> Per unit cost</th>
-			<th> Minimum purchasable units</th>
-			<th> Date of stocking</th>
-			<th> Action </th>
-			
+			<th scope="col">Product Id</th>
+			<th scope="col">Product category</th>
+			<th scope="col">Product Name </th>
+			<th scope="col">Units available</th>
+			<th scope="col">Per unit cost</th>
+			<th scope="col">Minimum purchasable units</th>
+			<th scope="col">Date of stocking</th>
+			<th scope="col">Action </th>
 		</tr>
+		</thead>
 		
 		<c:forEach var ="tempProduct" items="${products}">
 		<c:url var ="updateLink" value="/products/showFormForUpdatingProduct">
@@ -66,19 +61,16 @@
 		<c:url var="deleteLink" value="/products/delete">
 		<c:param name="productid" value="${tempProduct.productid}" />
 		</c:url>
-		
+		<tbody>
 		<tr> 
-		
-			<td> ${tempProduct.productid} </td>
-			<td> ${tempProduct.productname} </td>
-			<td> ${tempProduct.productcat} </td>
 			
+			<td> ${tempProduct.productid} </td>
+			<td> ${tempProduct.productcat} </td>
+			<td> ${tempProduct.productname} </td>
 			<td> ${tempProduct.units} </td>
 			<td> ${tempProduct.puc} </td>
 			<td> ${tempProduct.min} </td>
 			<td> ${tempProduct.stockdate} </td>
-			
-			
 			<td>
 			<a href="${updateLink}">Update</a>
 			|
@@ -86,15 +78,15 @@
 			</td>
 			 
 		</tr>
-		</c:forEach>	
+		</c:forEach>
+		</tbody>	
 		</table>
 		<br>
-		<div class="addbutton"></div><input type="button" value="Add Product" onclick="window.location.href='showFormForAddingProduct'; return false;" class="add-button"/>
+		
+	<button type="button" class="btn btn-secondary btn-lg btn-block"value="Add Product" onclick="window.location.href='showFormForAddingProduct'; return false;">Add Stock</button>
 	</div>
 	</div>
 	</div>
 </body>
-
-
 
 </html>

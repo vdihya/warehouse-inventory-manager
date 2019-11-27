@@ -33,11 +33,14 @@ create table deliverydetails (deliveryid int,
                               date_of_schedule date,
 								foreign key(deliveryid) references deliveries(deliveryid) on delete cascade);
                                 
-create trigger testtrigger1 after insert on warehouse.purchases
+create trigger deliveryentry after insert on warehouse.purchasedetails
 for each row
-insert into deliveries(purchaseid, clientid) values (new.purchaseid, new.clientid);
+insert into deliveries(clientid,purchaseid)
+select clientid,purchaseid
+from purchases 
+where purchaseid = new.purchaseid;
 
-create trigger testtrigger2 after insert on warehouse.deliveries
+create trigger deliveryscheduler after insert on warehouse.deliveries
 for each row
 insert into deliverydetails values (new.deliveryid,"scheduled for delivery",curdate()+5,curdate());
 
@@ -68,11 +71,26 @@ begin
             update products set units = units - @insertedunits where productid = (select productid from purchases where purchaseid =pid);
         else
 			set result = 0;
-			delete from purchasedetails where purchaseid = pid;
+			delete from purchases where purchaseid = pid;
+            delete from deliveries where purchaseid = pid;
         end if;
 	else
         set result = 0;
-		delete from purchasedetails where purchaseid = pid;
+		delete from purchases where purchaseid = pid;
+        delete from deliveries where purchaseid = pid;
 	end if;
     
 end //
+
+drop procedure updatestock;
+DELIMITER //
+CREATE PROCEDURE updatestock(in id int)
+BEGIN
+declare unitvalue int;
+declare oldunits int;
+declare restoredunits int;
+select units into @unitvalue from purchasedetails where purchaseid = id;
+select units into @oldunits from products where productid = (select productid from purchases where purchaseid =id);
+set @restoredunits = @oldunits + @unitvalue;
+update products set units = @restoredunits where productid = (select productid from purchases where purchaseid =id);
+END //

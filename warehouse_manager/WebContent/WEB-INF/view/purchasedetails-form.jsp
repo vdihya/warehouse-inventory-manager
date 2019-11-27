@@ -8,16 +8,9 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
 	<title>Log Purchase details</title>
 
-	<link type="text/css"
-		  rel="stylesheet"
-		  href="${pageContext.request.contextPath}/resources/css/style.css">
-
-	<link type="text/css"
-		  rel="stylesheet"
-		  href="${pageContext.request.contextPath}/resources/css/add-customer-style.css">
 
 <style>
-	.error {color: red}
+	.error {color: grey}
 </style>
 </head>
 
@@ -49,46 +42,30 @@
   </div>
 </nav>
 	
-	<div id="wrapper">
-		<div id="header">
-			<h2>Purchase details:</h2>
-		</div>
-	</div>
-
-	<div id="container">
-		<h3>Log Purchase details</h3>
-	
+	<div class="jumbotron">
+	<h3>Log Purchase information / 2</h3>
+	<br>
 		<form:form action="savePurchaseDetails" modelAttribute="purchasedetails" method="GET">
 		<form:hidden path="purchaseid" value="${purchaseid}"/>
-			<table>
-				<tbody>
-					 
-					<tr>
-						<td><label>Units purchased: </label></td>
-						<td><form:input path="units" /></td>
-					</tr>
-					<tr>
-						<td><label>Date of purchase: </label></td>
-						<td><form:input path="date_of_purchase" /></td>
-					</tr>
 			
-					<tr>
-						<td><label></label></td>
-						<td><input type="submit" value="Save" class="save" /></td>
-					</tr>
-
-	
-				
-				</tbody>
-			</table>
+			<div class="input-group mb-3">
+  			<div class="input-group-prepend">
+   				 <span class="input-group-text" id="basic-addon1">units purchased</span>
+ 		 	</div>
+  				<form:input path="units" class="form-control" aria-describedby="basic-addon1"/>
+  				
+			</div>
+			<div class="input-group mb-3">
+  			<div class="input-group-prepend">
+   				 <span class="input-group-text" id="basic-addon1">date of purchase</span>
+ 		 	</div>
+  				<form:input path="date_of_purchase" class="form-control" aria-describedby="basic-addon1"/>
+  				
+			</div>
+			<button type="submit" class="btn btn-dark">Submit</button>
+			<a class="btn btn-outline-dark" href="${pageContext.request.contextPath}/purchases/list" role="button">Back to stock list</a>
+		
 			</form:form>
-		
-			
-		<div style="clear; both;"></div>
-		
-		<p>
-			<a href="${pageContext.request.contextPath}/purchases/list">Go Back to Purchase Log</a>
-		</p>
 	
 	</div>
 

@@ -6,7 +6,6 @@
 
 <title>Deliveries scheduled</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
-<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css"/>
 </head>
 
 
@@ -44,17 +43,19 @@
 <div id="container">
 	<div id="content">
 </div>
-		<table>
+		<table class="table table-hover">
+		<thead>
 		<tr>
-			<th> Delivery Id</th>
-			<th> Status </th>
-			<th> Estimated delivery within </th>
-			<th> Date of schedule</th>
+			<th scope="col">Delivery Id</th>
+			<th scope="col">Status </th>
+			<th scope="col">Estimated delivery within </th>
+			<th scope="col">Date of schedule</th>
 			
 			
 		</tr>
-		
+		</thead>
 		<c:forEach var ="tempDelivery" items="${deliverydetails}">
+		<tbody>
 		<tr> 
 		
 			<td> ${tempDelivery.deliveryid} </td>
@@ -63,7 +64,8 @@
 			<td> ${tempDelivery.scheduled} </td>
 			 
 		</tr>
-		</c:forEach>	
+		</c:forEach>
+		</tbody>	
 		</table>
 		<br>
 		</div>

@@ -6,7 +6,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -35,10 +34,7 @@ public class Products
 	@Column(name="puc")
 	private float puc;
 
-
-	@NotNull(message="Required!")
 	@Min(value=10,message="must be greater than 10 units")
-	@Max(value=1000,message="greater than warehouse capacity!")
 	@Column(name="min")
 	private int min;
 
@@ -50,7 +46,6 @@ public class Products
 
 	@NotNull(message="Required!")
 	@Min(value=10,message="must be greater than 10 units")
-	@Max(value=1000,message="greater than warehouse capacity!")
 	@Column(name="units")
 	private String units;
 	

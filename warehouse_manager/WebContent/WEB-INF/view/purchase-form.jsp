@@ -9,20 +9,11 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
 	<title>Log a Purchase</title>
 
-	<link type="text/css"
-		  rel="stylesheet"
-		  href="${pageContext.request.contextPath}/resources/css/style.css">
-
-	<link type="text/css"
-		  rel="stylesheet"
-		  href="${pageContext.request.contextPath}/resources/css/add-customer-style.css">
-
 <style>
-	.error {color: red}
+	.error {color: grey}
 </style>
 </head>
 
-<body>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="/warehouse_manager">Warehouse manager</a>
@@ -49,62 +40,34 @@
     </span>
   </div>
 </nav>
-	
-	<div id="wrapper">
-		<div id="header">
-			<h2>Purchase details:</h2>
-		</div>
-	</div>
-
-	<div id="container">
-		<h3>Log Purchase details</h3>
-	
+	<div class="jumbotron">
+		<h3>Log Purchase information / 1</h3>
+	<br>
+	<br>
 		<form:form action="savePurchase" modelAttribute="purchases" method="POST">
-		
-		<table>
-				<tbody>
-				
-					<tr>
-						<td><label>Client Name:</label></td>
-						<td>
-							
-								<form:select path="purchaseclientid">
-								<c:forEach var ="tempClient" items="${clients}">
-   										<form:option value="${tempClient.clientid}"  label="${tempClient.clientname}"></form:option>
-									</c:forEach>
-									</form:select>
-							
-					</tr>
-					<tr>
-						<td><label>Product Name:</label></td>
-						<td>
-							
-								<form:select path="purchaseproductid">
+		<p>
+		<label>Client: </label>
+ 		 <form:select path="purchaseclientid">
+					<c:forEach var ="tempClient" items="${clients}">
+   									<form:option value="${tempClient.clientid}"  label="${tempClient.clientname}"></form:option>
+					</c:forEach>
+		</form:select>
+		</p>
+		<p>
+		<label>Product: </label>
+ 		 	<form:select path="purchaseproductid">
 								<c:forEach var ="tempProduct" items="${products}">
    										<form:option value="${tempProduct.productid}"  label="${tempProduct.productname}"></form:option>
 									</c:forEach>
 									</form:select>
 							
-					</tr>
-					
-					
-					<tr>
-						<td><label></label></td>
-						<td><input type="submit" value="Save" class="save" /></td>
-					</tr>
-
-	
-				
-				</tbody>
-			</table>
-			</form:form>
-		
-	
-		<div style="clear; both;"></div>
-		
-		<p>
-			<a href="${pageContext.request.contextPath}/purchases/list">Go back to Purchase Log</a>
 		</p>
+
+	<button type="submit" class="btn btn-dark">Submit</button>
+	<a class="btn btn-outline-dark" href="${pageContext.request.contextPath}/purchases/list" role="button">Back to purchases log</a>
+		
+		</form:form>
+		
 	
 	</div>
 

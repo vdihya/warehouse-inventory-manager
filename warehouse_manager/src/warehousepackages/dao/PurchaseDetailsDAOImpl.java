@@ -48,17 +48,22 @@ public class PurchaseDetailsDAOImpl implements PurchaseDetailsDAO {
 	}
 
 	@Override
+	@SuppressWarnings("rawtypes")
 	public void deletePurchase(int purchaseid) {
 		Session currentSession = sessionFactory.getCurrentSession();
-		@SuppressWarnings("rawtypes")
+		
+
+		StoredProcedureQuery query = currentSession.createStoredProcedureQuery("updatestock")
+			    .registerStoredProcedureParameter("id", int.class, ParameterMode.IN).setParameter("id",purchaseid);
 		Query theQuery = 
 		currentSession.createQuery("delete from Purchases where purchaseid=:purchaseid");
-		@SuppressWarnings("rawtypes")
 		Query theQuery2 = currentSession.createQuery("delete from Deliveries where purchaseid=:purchaseid");
 		theQuery.setParameter("purchaseid", purchaseid);
 		theQuery2.setParameter("purchaseid", purchaseid);
+		query.execute();
 		theQuery.executeUpdate();
 		theQuery2.executeUpdate();
+		
 	}
 
 }

@@ -6,7 +6,6 @@
 
 <title>Clients</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
-<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css"/>
 
 </head>
 
@@ -46,15 +45,15 @@
 <div id="container">
 	<div id="content">
 </div>
-		<table>
+		<table class="table table-hover">
+		<thead>
 		<tr>
-			<th> Client's Name</th>
-			<th> Client's Address</th>
-			<th> Client's Phone Number</th>
+			<th> Client Name</th>
+			<th> Client Address</th>
+			<th> Client Phone Number</th>
 			<th> Action </th>
-			
-			
 		</tr>
+		</thead>
 		
 		<c:forEach var ="tempClient" items="${clients}">
 		<c:url var ="updateLink" value="/clients/showFormForUpdatingClient">
@@ -64,7 +63,7 @@
 		<c:url var="deleteLink" value="/clients/delete">
 		<c:param name="clientid" value="${tempClient.clientid}" />
 		</c:url>
-		
+		<tbody>
 		<tr> 
 			<td> ${tempClient.clientname} </td>
 			<td> ${tempClient.address} </td>
@@ -76,11 +75,13 @@
 			<a href="${deleteLink}" onclick="if (!(confirm('Are you sure you want to delete this?'))) return false">Delete</a>
 			</td> 
 		</tr>
-		
-		</c:forEach>	
+		</c:forEach>
+		</tbody>	
 		</table>
 		<br>
-		<div class="addbutton"></div><input type="button" value="Add Client" onclick="window.location.href='showFormForAddingClient'; return false;" class="add-button"/>
+		
+		<button type="button" class="btn btn-secondary btn-lg btn-block"value="Add Client" onclick="window.location.href='showFormForAddingClient'; return false;">Add a Client</button>
+
 	</div>
 	</div>
 	</div>
