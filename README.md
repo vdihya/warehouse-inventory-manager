@@ -1,7 +1,6 @@
-# warehouse-inventory-manager
-CRUD operations in a warehouse-inventory-manager, for entering stock, client information, purchase information and to trigger delivery scheduling, involving a stored procedure to perform stock unit calculations and return values to a hibernate session
-
-
+# warehouse-operations-manager
+simulating operations in a warehouse, involves entering stock, client information, purchase information and consequently triggering deliveries, includes dynamic stock values (updation upon taking stock off the shelf and reshelving them upon return/cancelation of a particular purchase) 
+-------------------------------------------------------------------------------------------------------------------------------------------
 Spring MVC/Hibernate documentation is highly unreliable, due to which:
 1. Foreign key mapping in entity classes (Bi-directional mapping) cannot be established without NPE
 2. Foreign key Unidirectional mapping does not have standardized DataBinding PropertyEditor, MVC documentation has no standard format/convertible code
